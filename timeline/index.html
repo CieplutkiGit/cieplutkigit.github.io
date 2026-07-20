@@ -1,2 +1,112 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#090b0b" /><meta name="description" content="Investigation timeline and experience record." /><title>Investigation Timeline | Case File Portfolio</title><link rel="stylesheet" href="../src/styles/main.css" /><script type="module" src="../src/scripts/main.ts"></script></head><body><main><p>CASE FILE [TEXT HERE]</p><h1>Investigation timeline</h1><nav aria-label="Portfolio"><a href="../case/">Subject</a> · <a href="../evidence/">Evidence</a> · <a href="../archives/">Archives</a> · <a href="../contact/">Contact</a></nav></main></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b0b" />
+    <meta name="description" content="Investigation timeline and experience record." />
+    <title>Investigation Timeline | Case File Portfolio</title>
+    <link rel="stylesheet" href="../src/styles/main.css" />
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </head>
+  <body class="inner-page timeline-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="mobile-header">
+      <span>CASE FILE <span data-content="caseNumber">[TEXT HERE]</span></span>
+      <nav aria-label="Mobile navigation">
+        <a href="../case/">Subject</a>
+        <a href="../evidence/">Evidence</a>
+        <a href="./" aria-current="page">Timeline</a>
+        <a href="../archives/">Archives</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+
+    <div class="case-shell">
+      <aside class="case-sidebar">
+        <div class="sidebar-file">
+          <span>CASE FILE</span>
+          <strong data-content="caseNumber">[TEXT HERE]</strong>
+        </div>
+
+        <nav class="case-nav" aria-label="Portfolio navigation">
+          <a href="../case/"><span>01</span>Subject</a>
+          <a href="../evidence/"><span>02</span>Evidence</a>
+          <a href="./" aria-current="page"><span>03</span>Timeline</a>
+          <a href="../archives/"><span>04</span>Archives</a>
+          <a href="../contact/"><span>05</span>Contact</a>
+        </nav>
+
+        <a class="return-link" href="../">← Return to entrance</a>
+      </aside>
+
+      <main class="case-workspace" id="main">
+        <header class="workspace-heading">
+          <div>
+            <span class="eyebrow">03 / TIMELINE</span>
+            <h1>Investigation timeline</h1>
+          </div>
+          <span class="current-record">ACTIVITY LOG</span>
+        </header>
+
+        <div class="timeline-layout">
+          <section class="timeline-ledger" aria-label="Timeline placeholders">
+            <article class="timeline-entry">
+              <div class="timeline-date">[TEXT HERE]</div>
+              <div class="timeline-record">
+                <header><span>RECORD TYPE</span><strong>[TEXT HERE]</strong></header>
+                <h2>[TEXT HERE]</h2>
+                <p class="timeline-organization">[TEXT HERE]</p>
+                <p>[TEXT HERE]</p>
+              </div>
+            </article>
+
+            <article class="timeline-entry">
+              <div class="timeline-date">[TEXT HERE]</div>
+              <div class="timeline-record">
+                <header><span>RECORD TYPE</span><strong>[TEXT HERE]</strong></header>
+                <h2>[TEXT HERE]</h2>
+                <p class="timeline-organization">[TEXT HERE]</p>
+                <p>[TEXT HERE]</p>
+              </div>
+            </article>
+
+            <article class="timeline-entry">
+              <div class="timeline-date">[TEXT HERE]</div>
+              <div class="timeline-record">
+                <header><span>RECORD TYPE</span><strong>[TEXT HERE]</strong></header>
+                <h2>[TEXT HERE]</h2>
+                <p class="timeline-organization">[TEXT HERE]</p>
+                <p>[TEXT HERE]</p>
+              </div>
+            </article>
+
+            <article class="timeline-entry">
+              <div class="timeline-date">[TEXT HERE]</div>
+              <div class="timeline-record">
+                <header><span>RECORD TYPE</span><strong>[TEXT HERE]</strong></header>
+                <h2>[TEXT HERE]</h2>
+                <p class="timeline-organization">[TEXT HERE]</p>
+                <p>[TEXT HERE]</p>
+              </div>
+            </article>
+          </section>
+
+          <aside class="timeline-notes">
+            <article class="timeline-note-paper">
+              <span class="note-pin" aria-hidden="true"></span>
+              <h2>CURRENT FOCUS</h2>
+              <p data-content="currentFocus">[TEXT HERE]</p>
+              <div class="note-signature">[TEXT HERE]</div>
+            </article>
+
+            <div class="timeline-photo-placeholder" role="img" aria-label="Timeline image placeholder">[IMAGE HERE]</div>
+          </aside>
+        </div>
+
+        <div class="terminal-line"><span aria-hidden="true">›</span> [TEXT HERE]</div>
+      </main>
+    </div>
+  </body>
+</html>

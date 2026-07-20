@@ -1005,3 +1005,224 @@ a:focus-visible {
     padding: 24px 20px 20px;
   }
 }
+
+/* Timeline */
+
+.timeline-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.55fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.timeline-ledger {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  padding: 10px 0 10px 34px;
+}
+
+.timeline-ledger::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 11px;
+  width: 1px;
+  background: linear-gradient(var(--amber), rgba(195, 149, 72, 0.12));
+}
+
+.timeline-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: -28px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--amber);
+  border-radius: 50%;
+  background: #0f1212;
+  box-shadow: 0 0 0 5px rgba(195, 149, 72, 0.07);
+}
+
+.timeline-date {
+  padding-top: 16px;
+  color: var(--amber);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.timeline-record {
+  position: relative;
+  padding: 20px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(88, 67, 39, 0.58);
+  border-radius: 3px 7px 5px 2px;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(67, 45, 23, 0.024) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, #e1d1af, #cfb98d);
+  box-shadow: 0 15px 28px rgba(0, 0, 0, 0.28), inset 0 0 42px rgba(77, 51, 27, 0.07);
+}
+
+.timeline-record::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 24px;
+  width: 16px;
+  height: 44px;
+  border: 2px solid #6c6962;
+  border-bottom: 0;
+  border-radius: 9px 9px 0 0;
+  opacity: 0.65;
+}
+
+.timeline-record header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #736650;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.timeline-record header strong {
+  color: var(--red);
+}
+
+.timeline-record h2 {
+  min-height: 1em;
+  margin: 18px 0 5px;
+  font: 800 clamp(22px, 2.7vw, 31px)/1 Georgia, "Times New Roman", serif;
+  text-transform: uppercase;
+}
+
+.timeline-record p {
+  min-height: 36px;
+  margin: 13px 0 0;
+  color: #51483a;
+  font: 13px/1.55 Georgia, "Times New Roman", serif;
+}
+
+.timeline-record .timeline-organization {
+  min-height: 16px;
+  margin: 0;
+  color: #65251f;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.timeline-notes {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 20px;
+}
+
+.timeline-note-paper {
+  position: relative;
+  padding: 30px 24px 24px;
+  border: 1px solid rgba(88, 67, 39, 0.58);
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(76, 58, 36, 0.12) 28px),
+    #d9c69e;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+  transform: rotate(0.7deg);
+}
+
+.note-pin {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-note-paper h2 {
+  margin: 8px 0 20px;
+  color: #5e211c;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.timeline-note-paper p {
+  min-height: 120px;
+  margin: 0;
+  font: 16px/1.7 Georgia, "Times New Roman", serif;
+}
+
+.note-signature {
+  margin-top: 24px;
+  font: italic 14px Georgia, "Times New Roman", serif;
+  text-align: right;
+}
+
+.timeline-photo-placeholder {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+  border: 8px solid #d6cebb;
+  outline: 1px solid rgba(255, 255, 255, 0.15);
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgba(255, 255, 255, 0.1) 50%, transparent 50.5%),
+    linear-gradient(45deg, transparent 49.5%, rgba(255, 255, 255, 0.1) 50%, transparent 50.5%),
+    #303331;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.32);
+  transform: rotate(-0.7deg);
+}
+
+@media (max-width: 1080px) {
+  .timeline-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-notes {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .timeline-ledger {
+    padding-left: 25px;
+  }
+
+  .timeline-ledger::before {
+    left: 6px;
+  }
+
+  .timeline-entry {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .timeline-entry::before {
+    left: -25px;
+  }
+
+  .timeline-date {
+    padding-top: 0;
+  }
+
+  .timeline-notes {
+    grid-template-columns: 1fr;
+  }
+}
