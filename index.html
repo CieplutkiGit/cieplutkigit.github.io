@@ -8,11 +8,39 @@
     <title>Archive Entrance | Case File Portfolio</title>
     <script type="module" src="./src/scripts/main.ts"></script>
   </head>
-  <body>
-    <main>
-      <p>CASE FILE #042</p>
-      <h1>Archive entrance</h1>
-      <a href="./case/">Open case file</a>
+  <body class="entrance-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="archive-header">
+      <p>[TEXT HERE]</p>
+      <span>[TEXT HERE]</span>
+    </header>
+
+    <main class="archive-entrance" id="main">
+      <p class="archive-label">[TEXT HERE]</p>
+      <h1>Restricted case archive</h1>
+
+      <a class="case-folder" href="./case/" aria-label="Open case file">
+        <span class="folder-tab">CASE FILE <span data-content="caseNumber"></span></span>
+        <span class="folder-sheet" aria-hidden="true"></span>
+        <span class="folder-front">
+          <span class="classification-stamp">CONFIDENTIAL</span>
+          <span class="folder-field">
+            <span class="field-label">SUBJECT</span>
+            <span class="field-value" data-content="name"></span>
+          </span>
+          <span class="folder-field">
+            <span class="field-label">DESIGNATION</span>
+            <span class="field-value" data-content="role"></span>
+          </span>
+          <span class="folder-action">OPEN CASE FILE <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+
     </main>
+
+    <footer class="archive-status">
+      <span>[TEXT HERE]</span>
+      <span>[TEXT HERE]</span>
+    </footer>
   </body>
 </html>
