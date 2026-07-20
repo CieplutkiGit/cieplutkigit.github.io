@@ -1,4 +1,3 @@
-import "../styles/main.css";
 import { content } from "../data/content";
 
 document.documentElement.classList.add("scripts-ready");
