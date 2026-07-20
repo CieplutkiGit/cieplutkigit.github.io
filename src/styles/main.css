@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: #090b0b;
+  color: #e8ece8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  width: min(720px, calc(100% - 32px));
+  margin: 15vh auto;
+}
+
+a:focus-visible {
+  outline: 3px solid #c49445;
+  outline-offset: 4px;
+}
+
