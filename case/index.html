@@ -1,3 +1,129 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#090b0b" /><meta name="description" content="Subject dossier for the case file portfolio." /><title>Subject File | Case File Portfolio</title><script type="module" src="../src/scripts/main.ts"></script></head><body><main><p>CASE FILE #042</p><h1>Subject file</h1><nav aria-label="Portfolio"><a href="../">Entrance</a> · <a href="../evidence/">Evidence</a> · <a href="../timeline/">Timeline</a> · <a href="../archives/">Archives</a> · <a href="../contact/">Contact</a></nav></main></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b0b" />
+    <meta name="description" content="Subject dossier for the case file portfolio." />
+    <title>Subject File | Case File Portfolio</title>
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </head>
+  <body class="inner-page">
+    <a class="skip-link" href="#main">Skip to content</a>
 
+    <header class="mobile-header">
+      <span>CASE FILE <span data-content="caseNumber">[TEXT HERE]</span></span>
+      <nav aria-label="Mobile navigation">
+        <a href="./" aria-current="page">Subject</a>
+        <a href="../evidence/">Evidence</a>
+        <a href="../timeline/">Timeline</a>
+        <a href="../archives/">Archives</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+
+    <div class="case-shell">
+      <aside class="case-sidebar">
+        <div class="sidebar-file">
+          <span>CASE FILE</span>
+          <strong data-content="caseNumber">[TEXT HERE]</strong>
+        </div>
+
+        <nav class="case-nav" aria-label="Portfolio navigation">
+          <a href="./" aria-current="page"><span>01</span>Subject</a>
+          <a href="../evidence/"><span>02</span>Evidence</a>
+          <a href="../timeline/"><span>03</span>Timeline</a>
+          <a href="../archives/"><span>04</span>Archives</a>
+          <a href="../contact/"><span>05</span>Contact</a>
+        </nav>
+
+        <a class="return-link" href="../">← Return to entrance</a>
+      </aside>
+
+      <main class="case-workspace" id="main">
+        <header class="workspace-heading">
+          <div>
+            <span class="eyebrow">01 / SUBJECT</span>
+            <h1>Subject dossier</h1>
+          </div>
+          <span class="current-record">CURRENT RECORD</span>
+        </header>
+
+        <article class="dossier-paper">
+          <div class="dossier-edge" aria-hidden="true"></div>
+
+          <section class="profile-block" aria-label="Subject identity">
+            <div class="portrait-card">
+              <span class="paperclip" aria-hidden="true"></span>
+              <div class="image-placeholder" role="img" aria-label="Portrait placeholder">[IMAGE HERE]</div>
+              <span class="photo-caption">PORTRAIT</span>
+            </div>
+
+            <dl class="identity-list">
+              <div><dt>SUBJECT</dt><dd data-content="name">[TEXT HERE]</dd></div>
+              <div><dt>ALIAS</dt><dd data-content="username">[TEXT HERE]</dd></div>
+              <div><dt>ROLE</dt><dd data-content="role">[TEXT HERE]</dd></div>
+              <div><dt>STATUS</dt><dd data-content="status">[TEXT HERE]</dd></div>
+            </dl>
+          </section>
+
+          <section class="dossier-main">
+            <div class="case-stamp">CASE FILE</div>
+            <p class="document-label">SUBJECT RECORD / <span data-content="caseNumber">[TEXT HERE]</span></p>
+            <h2 data-content="name">[TEXT HERE]</h2>
+            <p class="role-line" data-content="role">[TEXT HERE]</p>
+            <div class="document-rule"></div>
+
+            <div class="summary-grid">
+              <section>
+                <h3>PROFESSIONAL SUMMARY</h3>
+                <p data-content="summary">[TEXT HERE]</p>
+              </section>
+              <section>
+                <h3>CURRENT FOCUS</h3>
+                <p data-content="currentFocus">[TEXT HERE]</p>
+              </section>
+            </div>
+
+            <section class="skills-section">
+              <h3>SKILLS RECORD</h3>
+              <div class="skill-row">
+                <div><strong>PRIMARY TOOLS</strong><small>[TEXT HERE]</small></div>
+                <div class="skill-tags" data-skill-group="primary"><span class="skill-tag">[TEXT HERE]</span></div>
+              </div>
+              <div class="skill-row">
+                <div><strong>WORKING KNOWLEDGE</strong><small>[TEXT HERE]</small></div>
+                <div class="skill-tags" data-skill-group="workingKnowledge"><span class="skill-tag">[TEXT HERE]</span></div>
+              </div>
+              <div class="skill-row">
+                <div><strong>CURRENTLY INVESTIGATING</strong><small>[TEXT HERE]</small></div>
+                <div class="skill-tags" data-skill-group="investigating"><span class="skill-tag">[TEXT HERE]</span></div>
+              </div>
+            </section>
+          </section>
+
+          <section class="location-record">
+            <div>
+              <h3>LAST KNOWN LOCATION</h3>
+              <div class="map-placeholder" role="img" aria-label="Map placeholder">[MAP HERE]</div>
+              <p><strong data-content="locationLabel">[TEXT HERE]</strong><span data-content="locationNote">[TEXT HERE]</span></p>
+            </div>
+
+            <aside class="evidence-marks" aria-label="Artwork placeholders">
+              <div class="round-placeholder">[IMAGE HERE]</div>
+              <div class="print-placeholder">[IMAGE HERE]</div>
+              <div class="barcode-placeholder">[IMAGE HERE]</div>
+            </aside>
+          </section>
+
+          <footer class="dossier-footer">
+            <a href="../evidence/">View evidence room →</a>
+            <span>[TEXT HERE]</span>
+          </footer>
+        </article>
+
+        <div class="terminal-line"><span aria-hidden="true">›</span> [TEXT HERE]</div>
+      </main>
+    </div>
+  </body>
+</html>

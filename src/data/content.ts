@@ -64,26 +64,28 @@ export interface SiteContent {
   contact: ContactLinks;
 }
 
+const placeholder = "[TEXT HERE]";
+
 export const content: SiteContent = {
-  caseNumber: "",
+  caseNumber: placeholder,
   identity: {
-    name: "",
-    username: "",
-    role: "",
-    summary: "",
-    currentFocus: "",
-    status: ""
+    name: placeholder,
+    username: placeholder,
+    role: placeholder,
+    summary: placeholder,
+    currentFocus: placeholder,
+    status: placeholder
   },
   location: {
-    label: "",
-    note: "",
+    label: placeholder,
+    note: placeholder,
     markerX: null,
     markerY: null
   },
   skills: {
-    primary: [],
-    workingKnowledge: [],
-    investigating: []
+    primary: [placeholder],
+    workingKnowledge: [placeholder],
+    investigating: [placeholder]
   },
   projects: [],
   timeline: [],
@@ -95,4 +97,3 @@ export const content: SiteContent = {
     resume: ""
   }
 };
-
