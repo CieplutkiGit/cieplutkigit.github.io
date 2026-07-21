@@ -2422,16 +2422,20 @@ a:focus-visible {
 
 .capabilities-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1.22fr);
 }
 
 .capabilities-grid article {
   min-width: 0;
-  padding: 6px 18px 2px;
+  padding: 6px 10px 2px;
 }
 
 .capabilities-grid article:first-child {
   padding-left: 0;
+}
+
+.capabilities-grid article:last-child {
+  padding-right: 0;
 }
 
 .capabilities-grid article + article {
@@ -2441,8 +2445,9 @@ a:focus-visible {
 .capabilities-grid h4 {
   margin: 0 0 10px;
   color: #393228;
-  font: 700 0.95rem/1.2 var(--font-display);
-  letter-spacing: 0.01em;
+  font: 700 0.9rem/1.2 var(--font-display);
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .capabilities-grid p {
@@ -2656,9 +2661,29 @@ a:focus-visible {
 }
 
 @media (max-width: 980px) {
+  .capabilities-grid {
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.05fr) minmax(0, 1.38fr);
+  }
+
   .capabilities-grid article {
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+
+  .capabilities-grid article:first-child {
+    padding-left: 0;
+  }
+
+  .capabilities-grid article:last-child {
+    padding-right: 0;
+  }
+
+  .capabilities-grid h4 {
+    font-size: 0.82rem;
+  }
+
+  .capabilities-grid p {
+    font-size: 0.78rem;
   }
 
   .current-case-record {
