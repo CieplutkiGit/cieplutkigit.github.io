@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b0b" />
+    <meta name="description" content="Project case file." />
+    <title>Case File | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../src/styles/main.css" />
+    <script type="module" src="../../src/scripts/main.ts"></script>
+  </head>
+  <body class="inner-page case-viewer-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="mobile-header">
+      <span>CASE FILE <span data-case-field="caseNumber">[TEXT HERE]</span></span>
+      <nav aria-label="Mobile navigation">
+        <a href="../../case/">Subject</a>
+        <a href="../" aria-current="page">Evidence</a>
+        <a href="../../timeline/">Timeline</a>
+        <a href="../../archives/">Archives</a>
+        <a href="../../contact/">Contact</a>
+      </nav>
+    </header>
+
+    <div class="case-shell case-viewer-shell">
+      <aside class="case-sidebar">
+        <div class="sidebar-file">
+          <span>CASE FILE</span>
+          <strong data-case-field="caseNumber">[TEXT HERE]</strong>
+        </div>
+
+        <nav class="case-nav" aria-label="Portfolio navigation">
+          <a href="../../case/"><span>01</span>Subject</a>
+          <a href="../" aria-current="page"><span>02</span>Evidence</a>
+          <a href="../../timeline/"><span>03</span>Timeline</a>
+          <a href="../../archives/"><span>04</span>Archives</a>
+          <a href="../../contact/"><span>05</span>Contact</a>
+        </nav>
+
+        <a class="return-link" href="../">← Back to files</a>
+      </aside>
+
+      <main class="case-viewer-workspace" id="main">
+        <div class="case-viewer-message" data-case-message hidden>
+          <strong>CASE FILE NOT FOUND</strong>
+          <a href="../">BACK TO FILES</a>
+        </div>
+
+        <article class="case-book" data-case-viewer>
+          <section class="case-info-sheet">
+            <span class="paperclip" aria-hidden="true"></span>
+            <header>
+              <span>CASE <span data-case-field="caseNumber">[TEXT HERE]</span></span>
+              <h1 data-case-field="name">[TEXT HERE]</h1>
+            </header>
+
+            <section>
+              <h2>CASE BRIEF</h2>
+              <p data-case-field="brief">[TEXT HERE]</p>
+            </section>
+
+            <section>
+              <h2>MY ROLE</h2>
+              <p data-case-field="role">[TEXT HERE]</p>
+            </section>
+
+            <section>
+              <h2>TECH STACK</h2>
+              <div class="case-viewer-tags" data-case-list="techStack"><span>[TEXT HERE]</span></div>
+            </section>
+
+            <section>
+              <h2>KEY FEATURES</h2>
+              <ul class="case-feature-list" data-case-list="keyFeatures"><li>[TEXT HERE]</li></ul>
+            </section>
+
+            <div class="case-viewer-actions">
+              <a data-case-link="liveDemo" href="#" hidden>LIVE DEMO</a>
+              <a data-case-link="github" href="#" hidden>GITHUB</a>
+              <a href="../">BACK TO FILES</a>
+            </div>
+          </section>
+
+          <section class="case-media-sheet">
+            <header>
+              <span>VIDEO EVIDENCE</span>
+              <strong>CASE <span data-case-field="caseNumber">[TEXT HERE]</span></strong>
+            </header>
+            <div class="case-video-frame">
+              <video data-case-video controls hidden></video>
+              <div data-case-video-placeholder>[VIDEO HERE]</div>
+            </div>
+            <div class="case-media-notes" aria-label="Reserved empty section"></div>
+          </section>
+
+          <aside class="case-evidence-strip">
+            <header>
+              <span>EVIDENCE</span>
+              <strong data-case-field="status">[TEXT HERE]</strong>
+            </header>
+            <div class="case-screenshot-list" data-case-screenshots>
+              <div class="case-evidence-photo">[IMAGE HERE]</div>
+              <div class="case-evidence-photo">[IMAGE HERE]</div>
+              <div class="case-evidence-photo">[IMAGE HERE]</div>
+              <div class="case-evidence-photo">[IMAGE HERE]</div>
+            </div>
+          </aside>
+        </article>
+
+        <div class="case-bottom-row" aria-label="Reserved empty sections">
+          <section class="case-bottom-strip"></section>
+          <aside class="case-bottom-note"></aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -12,6 +12,7 @@ export default defineConfig({
         home: resolve(root, "index.html"),
         case: resolve(root, "case/index.html"),
         evidence: resolve(root, "evidence/index.html"),
+        evidenceCase: resolve(root, "evidence/case/index.html"),
         timeline: resolve(root, "timeline/index.html"),
         archives: resolve(root, "archives/index.html"),
         contact: resolve(root, "contact/index.html"),
