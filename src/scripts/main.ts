@@ -60,7 +60,7 @@ if (evidenceGrid) {
     card.dataset.order = String(item.order);
     card.dataset.title = item.name.toLowerCase();
 
-    const statusClass = item.status.includes("DEVELOPMENT") ? "is-progress" : "is-closed";
+    const statusClass = item.status === "CLOSED" ? "is-closed" : "is-progress";
     const category = item.category || "[CATEGORY HERE]";
     const tags = item.tags.length
       ? item.tags.map((tag) => `<span>${tag}</span>`).join("")

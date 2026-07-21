@@ -20,6 +20,25 @@ export interface PortfolioCase {
 
 export const cases: PortfolioCase[] = [
   {
+    id: "to-be-documented",
+    caseNumber: "[TEXT HERE]",
+    name: "To Be Documented",
+    brief: "",
+    role: "",
+    techStack: [],
+    keyFeatures: [],
+    videoUrl: "",
+    screenshots: [],
+    liveDemoUrl: "",
+    githubUrl: "",
+    status: "TO BE DOCUMENTED",
+    category: "",
+    categoryKey: "placeholder",
+    tags: [],
+    coverImage: "",
+    order: 0
+  },
+  {
     id: "submarine-game",
     caseNumber: "003",
     name: "Submarine Game",
