@@ -2441,8 +2441,8 @@ a:focus-visible {
 .capabilities-grid h4 {
   margin: 0 0 10px;
   color: #393228;
-  font: 700 0.62rem/1.3 var(--font-typewriter);
-  letter-spacing: 0.02em;
+  font: 700 0.68rem/1.3 var(--font-typewriter);
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
