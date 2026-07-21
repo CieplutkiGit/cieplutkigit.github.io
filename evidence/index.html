@@ -69,59 +69,63 @@
             <img src="../assets/stamp-featured.png" alt="Featured" />
           </header>
 
-          <div class="evidence-tools" aria-label="Evidence placeholders">
-            <span>[TEXT HERE]</span>
-            <span>[TEXT HERE]</span>
-            <span>[TEXT HERE]</span>
-            <span class="evidence-search">[TEXT HERE]</span>
+          <div class="evidence-tools" aria-label="Evidence filters">
+            <button type="button" data-evidence-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" data-evidence-filter="tag-01" aria-pressed="false">[TAG HERE 01]</button>
+            <button type="button" data-evidence-filter="tag-02" aria-pressed="false">[TAG HERE 02]</button>
+            <button type="button" data-evidence-filter="tag-03" aria-pressed="false">[TAG HERE 03]</button>
+            <label class="evidence-search">
+              <span class="visually-hidden">Search evidence files</span>
+              <input type="search" data-evidence-search placeholder="[SEARCH HERE]" autocomplete="off" />
+            </label>
           </div>
 
           <section class="evidence-grid" aria-label="Project placeholders">
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-01">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 01]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-02">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 02]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-03">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 03]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-01 tag-02">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 04]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-02 tag-03">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 05]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
-            <article class="evidence-folder">
+            <article class="evidence-folder" data-evidence-card data-tags="tag-01 tag-03">
               <span class="evidence-clip" aria-hidden="true"></span>
-              <header><span>CASE [TEXT HERE]</span><span>[TEXT HERE]</span></header>
+              <header><span>CASE [TEXT HERE 06]</span><span>[TEXT HERE]</span></header>
               <div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
               <h2>[TEXT HERE]</h2><p>[TEXT HERE]</p>
               <footer><span>[TEXT HERE]</span><span>[LINK HERE]</span></footer>
             </article>
           </section>
 
-          <div class="evidence-pagination"><span>[TEXT HERE]</span><span>[TEXT HERE]</span></div>
+          <div class="evidence-pagination"><span>RESULTS</span><output data-evidence-results aria-live="polite">6 / 6</output></div>
         </div>
       </main>
     </div>
