@@ -69,15 +69,34 @@
             <img src="../assets/stamp-featured.png" alt="Featured" />
           </header>
 
-          <div class="evidence-tools" aria-label="Evidence filters">
-            <button type="button" data-evidence-filter="all" aria-pressed="true">ALL</button>
-            <button type="button" data-evidence-filter="tag-01" aria-pressed="false">[TAG HERE 01]</button>
-            <button type="button" data-evidence-filter="tag-02" aria-pressed="false">[TAG HERE 02]</button>
-            <button type="button" data-evidence-filter="tag-03" aria-pressed="false">[TAG HERE 03]</button>
-            <label class="evidence-search">
-              <span class="visually-hidden">Search evidence files</span>
-              <input type="search" data-evidence-search placeholder="[SEARCH HERE]" autocomplete="off" />
-            </label>
+          <div class="evidence-controls">
+            <div class="evidence-control-row">
+              <div class="evidence-categories" role="group" aria-label="Project categories">
+                <button type="button" data-evidence-category="all" aria-pressed="true">ALL</button>
+                <button type="button" data-evidence-category="pc" aria-pressed="false">PC</button>
+                <button type="button" data-evidence-category="mobile" aria-pressed="false">MOBILE</button>
+                <button type="button" data-evidence-category="placeholder" aria-pressed="false">[CATEGORY HERE]</button>
+              </div>
+              <label class="evidence-search">
+                <span class="visually-hidden">Search evidence files</span>
+                <input type="search" data-evidence-search placeholder="[SEARCH HERE]" autocomplete="off" />
+              </label>
+              <label class="evidence-sort">
+                <span>SORT</span>
+                <select data-evidence-sort>
+                  <option value="newest">NEWEST</option>
+                  <option value="oldest">OLDEST</option>
+                  <option value="az">A–Z</option>
+                  <option value="za">Z–A</option>
+                </select>
+              </label>
+            </div>
+            <div class="evidence-tags" role="group" aria-label="Project tags">
+              <button type="button" data-evidence-tag="all" aria-pressed="true">ALL TAGS</button>
+              <button type="button" data-evidence-tag="tag-01" aria-pressed="false">[TAG HERE 01]</button>
+              <button type="button" data-evidence-tag="tag-02" aria-pressed="false">[TAG HERE 02]</button>
+              <button type="button" data-evidence-tag="tag-03" aria-pressed="false">[TAG HERE 03]</button>
+            </div>
           </div>
 
           <section class="evidence-grid" aria-label="Project placeholders">
@@ -167,7 +186,18 @@
             </article>
           </section>
 
-          <div class="evidence-pagination"><span>RESULTS</span><output data-evidence-results aria-live="polite">12 / 12</output></div>
+          <footer class="evidence-pagination">
+            <output data-evidence-results aria-live="polite">RESULTS 1–10 / 12</output>
+            <nav class="evidence-page-nav" data-evidence-pages aria-label="Evidence pages"></nav>
+            <label class="evidence-page-size">
+              <span>SHOW</span>
+              <select data-evidence-page-size>
+                <option value="10">10 PER PAGE</option>
+                <option value="20">20 PER PAGE</option>
+                <option value="30">30 PER PAGE</option>
+              </select>
+            </label>
+          </footer>
         </div>
       </main>
     </div>

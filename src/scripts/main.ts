@@ -47,51 +47,168 @@ document.querySelectorAll<HTMLElement>("[data-skill-group]").forEach((group) => 
 });
 
 const evidenceSearch = document.querySelector<HTMLInputElement>("[data-evidence-search]");
-const evidenceFilters = Array.from(
-  document.querySelectorAll<HTMLButtonElement>("[data-evidence-filter]")
+const evidenceCategories = Array.from(
+  document.querySelectorAll<HTMLButtonElement>("[data-evidence-category]")
+);
+const evidenceTags = Array.from(
+  document.querySelectorAll<HTMLButtonElement>("[data-evidence-tag]")
 );
 const evidenceCards = Array.from(
   document.querySelectorAll<HTMLElement>("[data-evidence-card]")
 );
 const evidenceResults = document.querySelector<HTMLOutputElement>("[data-evidence-results]");
+const evidenceSort = document.querySelector<HTMLSelectElement>("[data-evidence-sort]");
+const evidencePageSize = document.querySelector<HTMLSelectElement>("[data-evidence-page-size]");
+const evidencePages = document.querySelector<HTMLElement>("[data-evidence-pages]");
+const evidenceGrid = document.querySelector<HTMLElement>(".evidence-grid");
 
-if (evidenceSearch && evidenceFilters.length && evidenceCards.length) {
+if (
+  evidenceSearch &&
+  evidenceCategories.length &&
+  evidenceTags.length &&
+  evidenceCards.length &&
+  evidenceSort &&
+  evidencePageSize &&
+  evidencePages &&
+  evidenceGrid
+) {
+  let selectedCategory = "all";
   let selectedTag = "all";
+  let currentPage = 1;
+  let itemsPerPage = Number(evidencePageSize.value);
 
-  const filterEvidence = () => {
+  const setPressedButton = (buttons: HTMLButtonElement[], selectedButton: HTMLButtonElement) => {
+    buttons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button === selectedButton));
+    });
+  };
+
+  const updateEvidence = () => {
     const searchTerm = evidenceSearch.value.trim().toLowerCase();
-    let visibleCards = 0;
-
-    evidenceCards.forEach((card) => {
+    const matchingCards = evidenceCards.filter((card) => {
       const tags = card.dataset.tags?.split(" ") ?? [];
+      const matchesCategory =
+        selectedCategory === "all" || card.dataset.category === selectedCategory;
       const matchesTag = selectedTag === "all" || tags.includes(selectedTag);
       const matchesSearch = !searchTerm || card.textContent?.toLowerCase().includes(searchTerm);
-      const isVisible = Boolean(matchesTag && matchesSearch);
+      return Boolean(matchesCategory && matchesTag && matchesSearch);
+    });
 
-      card.hidden = !isVisible;
+    matchingCards.sort((firstCard, secondCard) => {
+      const firstOrder = Number(firstCard.dataset.order ?? 0);
+      const secondOrder = Number(secondCard.dataset.order ?? 0);
+      const firstTitle = firstCard.dataset.title ?? "";
+      const secondTitle = secondCard.dataset.title ?? "";
 
-      if (isVisible) {
-        visibleCards += 1;
+      if (evidenceSort.value === "oldest") {
+        return firstOrder - secondOrder;
       }
+
+      if (evidenceSort.value === "az") {
+        return firstTitle.localeCompare(secondTitle);
+      }
+
+      if (evidenceSort.value === "za") {
+        return secondTitle.localeCompare(firstTitle);
+      }
+
+      return secondOrder - firstOrder;
+    });
+
+    matchingCards.forEach((card) => evidenceGrid.append(card));
+
+    const pageCount = Math.max(1, Math.ceil(matchingCards.length / itemsPerPage));
+    currentPage = Math.min(currentPage, pageCount);
+    const firstResult = (currentPage - 1) * itemsPerPage;
+    const lastResult = Math.min(firstResult + itemsPerPage, matchingCards.length);
+
+    evidenceCards.forEach((card) => {
+      card.hidden = true;
+    });
+
+    matchingCards.slice(firstResult, lastResult).forEach((card) => {
+      card.hidden = false;
     });
 
     if (evidenceResults) {
-      evidenceResults.textContent = `${visibleCards} / ${evidenceCards.length}`;
+      evidenceResults.textContent = matchingCards.length
+        ? `RESULTS ${firstResult + 1}–${lastResult} / ${matchingCards.length}`
+        : "RESULTS 0 / 0";
     }
-  };
 
-  evidenceFilters.forEach((button) => {
-    button.addEventListener("click", () => {
-      selectedTag = button.dataset.evidenceFilter ?? "all";
+    const makePageButton = (
+      label: string,
+      page: number,
+      disabled = false,
+      isCurrent = false
+    ) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.disabled = disabled;
 
-      evidenceFilters.forEach((filter) => {
-        filter.setAttribute("aria-pressed", String(filter === button));
+      if (isCurrent) {
+        button.setAttribute("aria-current", "page");
+      }
+
+      button.addEventListener("click", () => {
+        currentPage = page;
+        updateEvidence();
       });
 
-      filterEvidence();
+      return button;
+    };
+
+    const pageButtons: HTMLButtonElement[] = [
+      makePageButton("« FIRST", 1, currentPage === 1),
+      makePageButton("‹ PREV", Math.max(1, currentPage - 1), currentPage === 1)
+    ];
+
+    for (let page = 1; page <= pageCount; page += 1) {
+      pageButtons.push(makePageButton(String(page), page, false, page === currentPage));
+    }
+
+    pageButtons.push(
+      makePageButton("NEXT ›", Math.min(pageCount, currentPage + 1), currentPage === pageCount),
+      makePageButton("LAST »", pageCount, currentPage === pageCount)
+    );
+
+    evidencePages.replaceChildren(...pageButtons);
+  };
+
+  evidenceCategories.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedCategory = button.dataset.evidenceCategory ?? "all";
+      currentPage = 1;
+      setPressedButton(evidenceCategories, button);
+      updateEvidence();
     });
   });
 
-  evidenceSearch.addEventListener("input", filterEvidence);
-  filterEvidence();
+  evidenceTags.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedTag = button.dataset.evidenceTag ?? "all";
+      currentPage = 1;
+      setPressedButton(evidenceTags, button);
+      updateEvidence();
+    });
+  });
+
+  evidenceSearch.addEventListener("input", () => {
+    currentPage = 1;
+    updateEvidence();
+  });
+
+  evidenceSort.addEventListener("change", () => {
+    currentPage = 1;
+    updateEvidence();
+  });
+
+  evidencePageSize.addEventListener("change", () => {
+    itemsPerPage = Number(evidencePageSize.value);
+    currentPage = 1;
+    updateEvidence();
+  });
+
+  updateEvidence();
 }
