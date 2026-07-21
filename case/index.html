@@ -16,7 +16,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="mobile-header">
-      <span>CASE FILE <span data-content="caseNumber">[TEXT HERE]</span></span>
+      <span>CASE FILE 001</span>
       <nav aria-label="Mobile navigation">
         <a href="./" aria-current="page">Subject</a>
         <a href="../evidence/">Evidence</a>
@@ -30,7 +30,7 @@
       <aside class="case-sidebar">
         <div class="sidebar-file">
           <span>CASE FILE</span>
-          <strong data-content="caseNumber">[TEXT HERE]</strong>
+          <strong>001</strong>
         </div>
 
         <nav class="case-nav" aria-label="Portfolio navigation">
@@ -45,88 +45,133 @@
       </aside>
 
       <main class="case-workspace" id="main">
-        <header class="workspace-heading">
-          <div>
-            <span class="eyebrow">01 / SUBJECT</span>
-            <h1>Subject dossier</h1>
-          </div>
-          <span class="current-record">CURRENT RECORD</span>
-        </header>
-
-        <article class="dossier-paper">
+        <article class="dossier-paper subject-dossier">
           <div class="dossier-edge" aria-hidden="true"></div>
 
-          <section class="profile-block" aria-label="Subject identity">
-            <div class="portrait-card">
-              <span class="paperclip" aria-hidden="true"></span>
-              <div class="image-placeholder" role="img" aria-label="Portrait placeholder">[IMAGE HERE]</div>
-              <span class="photo-caption">PORTRAIT</span>
+          <header class="subject-heading">
+            <div>
+              <span class="eyebrow">01 / SUBJECT</span>
+              <h1>Subject dossier</h1>
+            </div>
+            <div class="subject-status">
+              <strong>AVAILABLE FOR WORK</strong>
+              <span>CASE FILE 001</span>
+            </div>
+          </header>
+
+          <section class="subject-overview">
+            <div class="subject-profile" aria-label="Subject identity">
+              <div class="portrait-card">
+                <span class="paperclip" aria-hidden="true"></span>
+                <div class="image-placeholder" role="img" aria-label="Portrait placeholder">[IMAGE HERE]</div>
+                <span class="photo-caption">PORTRAIT</span>
+              </div>
+
+              <dl class="identity-list">
+                <div><dt>SUBJECT</dt><dd>Agent 404</dd></div>
+                <div><dt>IDENTITY</dt><dd>Arek Lewandowski</dd></div>
+                <div><dt>ROLE</dt><dd>Unity Developer</dd></div>
+                <div><dt>LOCATION</dt><dd>Poland / Remote</dd></div>
+                <div><dt>STATUS</dt><dd>Available for work</dd></div>
+                <div><dt>EXPERIENCE</dt><dd>5+ years</dd></div>
+              </dl>
             </div>
 
-            <dl class="identity-list">
-              <div><dt>SUBJECT</dt><dd data-content="name">[TEXT HERE]</dd></div>
-              <div><dt>ALIAS</dt><dd data-content="username">[TEXT HERE]</dd></div>
-              <div><dt>ROLE</dt><dd data-content="role">[TEXT HERE]</dd></div>
-              <div><dt>STATUS</dt><dd data-content="status">[TEXT HERE]</dd></div>
+            <div class="subject-main">
+              <header class="subject-title">
+                <h2>AGENT 404</h2>
+                <p class="role-line">UNITY DEVELOPER</p>
+                <p class="focus-line">GAME ARCHITECTURE <span>•</span> UNITY EDITOR TOOLS <span>•</span> PERFORMANCE ENGINEERING</p>
+                <ul class="stack-list" aria-label="Technology stack">
+                  <li>UNITY</li>
+                  <li>C#</li>
+                  <li>CI</li>
+                  <li>DI</li>
+                  <li>GIT</li>
+                  <li>CODE ARCHITECTURE</li>
+                  <li>DESIGN PATTERNS</li>
+                  <li>ASYNC</li>
+                  <li>GC</li>
+                </ul>
+              </header>
+
+              <div class="subject-summary">
+                <section>
+                  <h3>PROFESSIONAL SUMMARY</h3>
+                  <p>Unity Developer focused on building game architecture, editor tools and scalable C# architecture. I enjoy turning complex problems into clean, maintainable and designer-friendly solutions.</p>
+                </section>
+                <section>
+                  <h3>CURRENT FOCUS</h3>
+                  <ul>
+                    <li>Unity Editor tooling</li>
+                    <li>Game architecture</li>
+                    <li>Performance and optimization</li>
+                    <li>Tools for designers</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section class="capabilities-record">
+            <h3>CAPABILITIES ON RECORD</h3>
+            <div class="capabilities-grid">
+              <article>
+                <h4>EDITOR TOOLING</h4>
+                <p>Custom tools and workflows that speed up production for designers.</p>
+                <ul>
+                  <li>UI Toolkit</li>
+                  <li>Validation</li>
+                  <li>Debug tools</li>
+                </ul>
+              </article>
+              <article>
+                <h4>GAME ARCHITECTURE</h4>
+                <p>Modular, data-driven systems designed for extension and iteration.</p>
+                <ul>
+                  <li>Event-driven communication</li>
+                  <li>Configurable content pipelines</li>
+                  <li>State orchestration</li>
+                </ul>
+              </article>
+              <article>
+                <h4>PERFORMANCE ENGINEERING</h4>
+                <p>Profiling and optimization for resource-constrained platforms.</p>
+                <ul>
+                  <li>CPU and memory profiling</li>
+                  <li>Allocation and GC control</li>
+                  <li>Asynchronous asset loading</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="current-case-record">
+            <div class="current-case-image" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>
+            <div class="current-case-copy">
+              <span>CURRENT CASE / CASE 003</span>
+              <h3>CASE BUILDER</h3>
+              <p>Modular Unity Editor tool for designing nonlinear cases, dialogues and dependencies using a node-based system.</p>
+              <ul class="case-tags" aria-label="Current case technologies">
+                <li>C#</li>
+                <li>UI TOOLKIT</li>
+                <li>SCRIPTABLEOBJECTS</li>
+                <li>EDITOR TOOL</li>
+                <li>NODE GRAPH</li>
+              </ul>
+            </div>
+            <dl class="case-stats">
+              <div><dt>04</dt><dd>CLOSED<br />CASES</dd></div>
+              <div><dt>03</dt><dd>LIVE<br />DEMOS</dd></div>
+              <div><dt>01</dt><dd>EDITOR<br />TOOLS</dd></div>
             </dl>
           </section>
 
-          <section class="dossier-main">
-            <div class="case-stamp">CASE FILE</div>
-            <p class="document-label">SUBJECT RECORD / <span data-content="caseNumber">[TEXT HERE]</span></p>
-            <h2 data-content="name">[TEXT HERE]</h2>
-            <p class="role-line" data-content="role">[TEXT HERE]</p>
-            <div class="document-rule"></div>
-
-            <div class="summary-grid">
-              <section>
-                <h3>PROFESSIONAL SUMMARY</h3>
-                <p data-content="summary">[TEXT HERE]</p>
-              </section>
-              <section>
-                <h3>CURRENT FOCUS</h3>
-                <p data-content="currentFocus">[TEXT HERE]</p>
-              </section>
-            </div>
-
-            <section class="skills-section">
-              <h3>SKILLS RECORD</h3>
-              <div class="skill-row">
-                <div><strong>PRIMARY TOOLS</strong><small>[TEXT HERE]</small></div>
-                <div class="skill-tags" data-skill-group="primary"><span class="skill-tag">[TEXT HERE]</span></div>
-              </div>
-              <div class="skill-row">
-                <div><strong>WORKING KNOWLEDGE</strong><small>[TEXT HERE]</small></div>
-                <div class="skill-tags" data-skill-group="workingKnowledge"><span class="skill-tag">[TEXT HERE]</span></div>
-              </div>
-              <div class="skill-row">
-                <div><strong>CURRENTLY INVESTIGATING</strong><small>[TEXT HERE]</small></div>
-                <div class="skill-tags" data-skill-group="investigating"><span class="skill-tag">[TEXT HERE]</span></div>
-              </div>
-            </section>
-          </section>
-
-          <section class="location-record">
-            <div>
-              <h3>LAST KNOWN LOCATION</h3>
-              <div class="map-placeholder" role="img" aria-label="Map placeholder">[MAP HERE]</div>
-              <p><strong data-content="locationLabel">[TEXT HERE]</strong><span data-content="locationNote">[TEXT HERE]</span></p>
-            </div>
-
-            <aside class="evidence-marks" aria-label="Artwork placeholders">
-              <div class="round-placeholder">[IMAGE HERE]</div>
-              <div class="print-placeholder">[IMAGE HERE]</div>
-              <div class="barcode-placeholder">[IMAGE HERE]</div>
-            </aside>
-          </section>
-
-          <footer class="dossier-footer">
-            <a href="../evidence/">View evidence room →</a>
-            <span>[TEXT HERE]</span>
+          <footer class="subject-footer">
+            <a href="../evidence/">VIEW ALL CASE FILES →</a>
+            <span>PORTFOLIO ID / UNITY-DEV-001</span>
           </footer>
         </article>
-
-        <div class="terminal-line"><span aria-hidden="true">›</span> [TEXT HERE]</div>
       </main>
     </div>
   </body>
