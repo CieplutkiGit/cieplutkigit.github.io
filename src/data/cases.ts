@@ -14,6 +14,7 @@ export interface PortfolioCase {
   category: string;
   categoryKey: string;
   tags: string[];
+  coverImage: string;
   order: number;
 }
 
@@ -34,6 +35,7 @@ export const cases: PortfolioCase[] = [
     category: "",
     categoryKey: "placeholder",
     tags: [],
+    coverImage: "",
     order: 13
   }
 ];

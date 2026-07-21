@@ -1,4 +1,5 @@
 import { content } from "../data/content";
+import { cases, findCase } from "../data/cases";
 
 document.documentElement.classList.add("scripts-ready");
 
@@ -46,6 +47,147 @@ document.querySelectorAll<HTMLElement>("[data-skill-group]").forEach((group) => 
   );
 });
 
+const evidenceGrid = document.querySelector<HTMLElement>(".evidence-grid");
+
+if (evidenceGrid) {
+  cases.forEach((item) => {
+    const card = document.createElement("a");
+    card.className = "evidence-folder evidence-folder-link";
+    card.href = `./case/?id=${encodeURIComponent(item.id)}`;
+    card.dataset.evidenceCard = "";
+    card.dataset.category = item.categoryKey || "placeholder";
+    card.dataset.tags = item.tags.join(" ");
+    card.dataset.order = String(item.order);
+    card.dataset.title = item.name.toLowerCase();
+
+    const statusClass = item.status.includes("DEVELOPMENT") ? "is-progress" : "is-closed";
+    const category = item.category || "[CATEGORY HERE]";
+    const tags = item.tags.length
+      ? item.tags.map((tag) => `<span>${tag}</span>`).join("")
+      : "<span>[TAG HERE]</span>";
+    const image = item.coverImage
+      ? `<img class="evidence-card-image" src="${item.coverImage}" alt="" />`
+      : '<div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>';
+
+    card.innerHTML = `
+      <span class="evidence-clip" aria-hidden="true"></span>
+      <header><span>CASE ${item.caseNumber}</span><span>${item.status}</span></header>
+      ${image}
+      <h2>${item.name}</h2>
+      <div class="evidence-card-meta"><span>CATEGORY</span><strong>${category}</strong></div>
+      <p>${item.brief}</p>
+      <div class="evidence-card-tags">${tags}</div>
+      <footer><span class="evidence-status ${statusClass}">${item.status}</span><span>OPEN FILE →</span></footer>
+    `;
+
+    evidenceGrid.prepend(card);
+  });
+}
+
+const caseViewer = document.querySelector<HTMLElement>("[data-case-viewer]");
+
+if (caseViewer) {
+  const selectedCase = findCase(new URLSearchParams(window.location.search).get("id"));
+  const caseMessage = document.querySelector<HTMLElement>("[data-case-message]");
+  const bottomRow = document.querySelector<HTMLElement>(".case-bottom-row");
+
+  if (!selectedCase) {
+    caseViewer.hidden = true;
+    if (bottomRow) {
+      bottomRow.hidden = true;
+    }
+    if (caseMessage) {
+      caseMessage.hidden = false;
+    }
+  } else {
+    document.title = `${selectedCase.name} | Case File`;
+
+    const fields: Record<string, string> = {
+      caseNumber: selectedCase.caseNumber,
+      name: selectedCase.name,
+      brief: selectedCase.brief,
+      role: selectedCase.role || "[TEXT HERE]",
+      status: selectedCase.status
+    };
+
+    document.querySelectorAll<HTMLElement>("[data-case-field]").forEach((element) => {
+      const key = element.dataset.caseField;
+      if (key && fields[key]) {
+        element.textContent = fields[key];
+      }
+    });
+
+    const renderList = (name: "techStack" | "keyFeatures", values: string[]) => {
+      const container = document.querySelector<HTMLElement>(`[data-case-list="${name}"]`);
+      if (!container) {
+        return;
+      }
+
+      const tagName = name === "keyFeatures" ? "li" : "span";
+      const items = values.length ? values : ["[TEXT HERE]"];
+      container.replaceChildren(
+        ...items.map((value) => {
+          const element = document.createElement(tagName);
+          element.textContent = value;
+          return element;
+        })
+      );
+    };
+
+    renderList("techStack", selectedCase.techStack);
+    renderList("keyFeatures", selectedCase.keyFeatures);
+
+    const video = document.querySelector<HTMLVideoElement>("[data-case-video]");
+    const videoPlaceholder = document.querySelector<HTMLElement>("[data-case-video-placeholder]");
+
+    if (video && videoPlaceholder && selectedCase.videoUrl) {
+      video.src = selectedCase.videoUrl;
+      video.hidden = false;
+      videoPlaceholder.hidden = true;
+    }
+
+    const screenshots = document.querySelector<HTMLElement>("[data-case-screenshots]");
+    if (screenshots) {
+      const imageCount = Math.max(4, selectedCase.screenshots.length);
+      screenshots.replaceChildren(
+        ...Array.from({ length: imageCount }, (_, index) => {
+          const frame = document.createElement("div");
+          frame.className = "case-evidence-photo";
+          const source = selectedCase.screenshots[index];
+
+          if (source) {
+            const image = document.createElement("img");
+            image.src = source;
+            image.alt = `${selectedCase.name} screenshot ${index + 1}`;
+            frame.append(image);
+          } else {
+            frame.textContent = "[IMAGE HERE]";
+          }
+
+          return frame;
+        })
+      );
+    }
+
+    const links = {
+      liveDemo: selectedCase.liveDemoUrl,
+      github: selectedCase.githubUrl
+    };
+
+    document.querySelectorAll<HTMLAnchorElement>("[data-case-link]").forEach((link) => {
+      const key = link.dataset.caseLink as keyof typeof links | undefined;
+      const url = key ? links[key] : "";
+
+      if (url) {
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.hidden = false;
+      }
+    });
+  }
+}
+
 const evidenceSearch = document.querySelector<HTMLInputElement>("[data-evidence-search]");
 const evidenceCategories = Array.from(
   document.querySelectorAll<HTMLButtonElement>("[data-evidence-category]")
@@ -60,7 +202,6 @@ const evidenceResults = document.querySelector<HTMLOutputElement>("[data-evidenc
 const evidenceSort = document.querySelector<HTMLSelectElement>("[data-evidence-sort]");
 const evidencePageSize = document.querySelector<HTMLSelectElement>("[data-evidence-page-size]");
 const evidencePages = document.querySelector<HTMLElement>("[data-evidence-pages]");
-const evidenceGrid = document.querySelector<HTMLElement>(".evidence-grid");
 
 if (
   evidenceSearch &&
