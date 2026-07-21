@@ -10,7 +10,10 @@
   --muted: #8e9690;
   --red: #842e25;
   --amber: #c39548;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: "Bitter", Georgia, "Times New Roman", serif;
+  --font-document: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-typewriter: "Courier Prime", "Courier New", monospace;
+  font-family: var(--font-document);
   background: var(--archive-black);
   color: #e8ece8;
 }
@@ -22,6 +25,58 @@
 body {
   min-width: 320px;
   margin: 0;
+  font-family: var(--font-document);
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+nav,
+button,
+input,
+select,
+.archive-header,
+.archive-label,
+.archive-register-header,
+.archive-status,
+.archive-type,
+.archive-link-placeholder,
+.folder-tab,
+.folder-action,
+.field-label,
+.field-value,
+.sidebar-file,
+.case-sidebar,
+.mobile-header,
+.return-link,
+.document-label,
+.photo-caption,
+.identity-list,
+.skill-row,
+.skill-tag,
+.eyebrow,
+.current-record,
+.evidence-counts,
+.evidence-folder > header,
+.evidence-card-meta,
+.evidence-card-tags,
+.evidence-folder footer,
+.evidence-status,
+.evidence-pagination,
+.timeline-date,
+.timeline-organization,
+.contact-brief-label,
+.contact-list,
+.terminal-line {
+  font-family: var(--font-typewriter);
 }
 
 a {
@@ -29,9 +84,13 @@ a {
   text-decoration: none;
 }
 
-button,
 a {
   font: inherit;
+}
+
+button {
+  font: inherit;
+  font-family: var(--font-typewriter);
 }
 
 a:focus-visible {
@@ -130,7 +189,7 @@ a:focus-visible {
 
 .archive-entrance h1 {
   margin: 0 0 clamp(54px, 8vw, 84px);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 58px);
   letter-spacing: -0.025em;
   text-transform: uppercase;
@@ -227,7 +286,7 @@ a:focus-visible {
 .field-value {
   min-height: 25px;
   border-bottom: 1px solid rgba(54, 42, 28, 0.48);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-typewriter);
   font-size: 21px;
   font-weight: 700;
 }
@@ -403,7 +462,7 @@ a:focus-visible {
 
 .workspace-heading h1 {
   margin: 6px 0 0;
-  font: 700 clamp(28px, 4vw, 46px)/1 Georgia, "Times New Roman", serif;
+  font: 700 clamp(28px, 4vw, 46px)/1 var(--font-display);
 }
 
 .eyebrow,
@@ -548,7 +607,7 @@ a:focus-visible {
 .dossier-main h2 {
   min-height: 1.1em;
   margin: 0;
-  font: 800 clamp(36px, 5vw, 64px)/0.95 Georgia, "Times New Roman", serif;
+  font: 800 clamp(36px, 5vw, 64px)/0.95 var(--font-display);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -584,7 +643,7 @@ a:focus-visible {
 .summary-grid p {
   min-height: 72px;
   margin: 0;
-  font: 14px/1.65 Georgia, "Times New Roman", serif;
+  font: 14px/1.65 var(--font-document);
 }
 
 .skills-section {
@@ -614,7 +673,7 @@ a:focus-visible {
 .skill-row small {
   margin-top: 4px;
   color: #756955;
-  font: 11px/1.4 Georgia, "Times New Roman", serif;
+  font: 11px/1.4 var(--font-document);
 }
 
 .skill-tags {
@@ -884,7 +943,7 @@ a:focus-visible {
   padding: 18px;
   border-bottom: 1px solid rgba(34, 33, 21, 0.45);
   text-align: center;
-  font: 700 19px/1 Georgia, "Times New Roman", serif;
+  font: 700 19px/1 var(--font-display);
   letter-spacing: 0.08em;
 }
 
@@ -926,14 +985,14 @@ a:focus-visible {
 
 .evidence-profile strong {
   margin-top: 15px;
-  font: 700 16px/1.1 Georgia, "Times New Roman", serif;
+  font: 700 16px/1.1 var(--font-display);
 }
 
 .evidence-profile p {
   min-height: 40px;
   margin: 8px 0 0;
   color: #51483a;
-  font: 11px/1.45 Georgia, "Times New Roman", serif;
+  font: 11px/1.45 var(--font-document);
 }
 
 .evidence-profile img {
@@ -1017,13 +1076,13 @@ a:focus-visible {
 
 .evidence-heading h1 {
   margin: 5px 0 6px;
-  font: 700 clamp(32px, 4vw, 48px)/1 Georgia, "Times New Roman", serif;
+  font: 700 clamp(32px, 4vw, 48px)/1 var(--font-display);
 }
 
 .evidence-heading p {
   margin: 0;
   color: #635844;
-  font: 12px/1.45 Georgia, "Times New Roman", serif;
+  font: 12px/1.45 var(--font-document);
 }
 
 .evidence-heading > img {
@@ -1255,7 +1314,7 @@ a:focus-visible {
 .evidence-folder h2 {
   min-height: 1em;
   margin: 0 0 5px;
-  font: 800 clamp(15px, 1.6vw, 21px)/1 Georgia, "Times New Roman", serif;
+  font: 800 clamp(15px, 1.6vw, 21px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1263,7 +1322,7 @@ a:focus-visible {
   min-height: 27px;
   margin: 6px 0;
   color: #51483a;
-  font: 9px/1.45 Georgia, "Times New Roman", serif;
+  font: 9px/1.45 var(--font-document);
 }
 
 .evidence-card-meta {
@@ -1538,7 +1597,7 @@ a:focus-visible {
 .timeline-record h2 {
   min-height: 1em;
   margin: 18px 0 5px;
-  font: 800 clamp(22px, 2.7vw, 31px)/1 Georgia, "Times New Roman", serif;
+  font: 800 clamp(22px, 2.7vw, 31px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1546,14 +1605,14 @@ a:focus-visible {
   min-height: 36px;
   margin: 13px 0 0;
   color: #51483a;
-  font: 13px/1.55 Georgia, "Times New Roman", serif;
+  font: 13px/1.55 var(--font-document);
 }
 
 .timeline-record .timeline-organization {
   min-height: 16px;
   margin: 0;
   color: #65251f;
-  font-family: var(--mono, ui-monospace, monospace);
+  font-family: var(--font-typewriter);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -1599,12 +1658,12 @@ a:focus-visible {
 .timeline-note-paper p {
   min-height: 120px;
   margin: 0;
-  font: 16px/1.7 Georgia, "Times New Roman", serif;
+  font: 16px/1.7 var(--font-document);
 }
 
 .note-signature {
   margin-top: 24px;
-  font: italic 14px Georgia, "Times New Roman", serif;
+  font: italic 14px var(--font-document);
   text-align: right;
 }
 
@@ -1723,7 +1782,7 @@ a:focus-visible {
 .archive-copy h2 {
   min-height: 1em;
   margin: 0 0 7px;
-  font: 800 clamp(21px, 2.4vw, 30px)/1 Georgia, "Times New Roman", serif;
+  font: 800 clamp(21px, 2.4vw, 30px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1731,7 +1790,7 @@ a:focus-visible {
   min-height: 28px;
   margin: 0;
   color: #554b3c;
-  font: 12px/1.5 Georgia, "Times New Roman", serif;
+  font: 12px/1.5 var(--font-document);
 }
 
 .archive-type {
@@ -1784,7 +1843,7 @@ a:focus-visible {
   min-height: 22px;
   margin: 9px 0 0;
   color: #a4aaa5;
-  font: 13px/1.5 Georgia, "Times New Roman", serif;
+  font: 13px/1.5 var(--font-document);
 }
 
 .archive-seal-placeholder {
@@ -1892,7 +1951,7 @@ a:focus-visible {
 .contact-intro {
   min-height: 62px;
   margin: 32px 0;
-  font: 16px/1.65 Georgia, "Times New Roman", serif;
+  font: 16px/1.65 var(--font-document);
 }
 
 .contact-list {
@@ -1934,7 +1993,7 @@ a:focus-visible {
 .contact-list dd small {
   margin-top: 5px;
   color: #736650;
-  font: 11px Georgia, "Times New Roman", serif;
+  font: 11px var(--font-document);
 }
 
 .contact-location {
@@ -1980,14 +2039,14 @@ a:focus-visible {
 .contact-brief h2 {
   min-height: 1em;
   margin: 25px 0 9px;
-  font: 800 clamp(28px, 3.3vw, 42px)/1 Georgia, "Times New Roman", serif;
+  font: 800 clamp(28px, 3.3vw, 42px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
 .contact-brief > p {
   min-height: 82px;
   margin: 0;
-  font: 14px/1.65 Georgia, "Times New Roman", serif;
+  font: 14px/1.65 var(--font-document);
 }
 
 .contact-brief dl {
@@ -2048,7 +2107,7 @@ a:focus-visible {
   min-height: 20px;
   margin: 0;
   color: #a4aaa5;
-  font: 12px/1.5 Georgia, "Times New Roman", serif;
+  font: 12px/1.5 var(--font-document);
 }
 
 @media (max-width: 920px) {
