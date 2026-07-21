@@ -298,7 +298,7 @@ a:focus-visible {
   border: 1px solid rgba(54, 42, 28, 0.58);
   background: rgba(255, 255, 255, 0.12);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -581,7 +581,7 @@ a:focus-visible {
   min-height: 18px;
   margin: 0;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .case-stamp {
@@ -607,7 +607,7 @@ a:focus-visible {
 .dossier-main h2 {
   min-height: 1.1em;
   margin: 0;
-  font: 800 clamp(36px, 5vw, 64px)/0.95 var(--font-display);
+  font: 700 clamp(36px, 5vw, 64px)/0.95 var(--font-display);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -617,7 +617,7 @@ a:focus-visible {
   margin: 14px 0 0;
   color: #5e211c;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.09em;
 }
 
@@ -777,7 +777,7 @@ a:focus-visible {
 
 .dossier-footer a {
   color: var(--red);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .terminal-line {
@@ -1023,7 +1023,7 @@ a:focus-visible {
 .evidence-counts dd {
   margin: 0;
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .evidence-fingerprint {
@@ -1293,7 +1293,7 @@ a:focus-visible {
 
 .evidence-folder > header span:last-child {
   color: var(--red);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .evidence-image-placeholder {
@@ -1314,7 +1314,7 @@ a:focus-visible {
 .evidence-folder h2 {
   min-height: 1em;
   margin: 0 0 5px;
-  font: 800 clamp(15px, 1.6vw, 21px)/1 var(--font-display);
+  font: 700 clamp(15px, 1.6vw, 21px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1364,7 +1364,7 @@ a:focus-visible {
   border-top: 1px dashed rgba(52, 42, 28, 0.25);
   color: #514638;
   font-size: 7px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .evidence-status {
@@ -1551,7 +1551,7 @@ a:focus-visible {
   padding-top: 16px;
   color: var(--amber);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -1597,7 +1597,7 @@ a:focus-visible {
 .timeline-record h2 {
   min-height: 1em;
   margin: 18px 0 5px;
-  font: 800 clamp(22px, 2.7vw, 31px)/1 var(--font-display);
+  font: 700 clamp(22px, 2.7vw, 31px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1614,7 +1614,7 @@ a:focus-visible {
   color: #65251f;
   font-family: var(--font-typewriter);
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -1749,7 +1749,7 @@ a:focus-visible {
   background: rgba(77, 55, 32, 0.1);
   color: #6f614d;
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.11em;
 }
 
@@ -1776,13 +1776,13 @@ a:focus-visible {
 .archive-row time {
   color: #6d604c;
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .archive-copy h2 {
   min-height: 1em;
   margin: 0 0 7px;
-  font: 800 clamp(21px, 2.4vw, 30px)/1 var(--font-display);
+  font: 700 clamp(21px, 2.4vw, 30px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -1818,7 +1818,7 @@ a:focus-visible {
   bottom: 10px;
   color: #6d604c;
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .archive-box {
@@ -1970,7 +1970,7 @@ a:focus-visible {
 .contact-list dt {
   color: #6e614c;
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.09em;
 }
 
@@ -2039,7 +2039,7 @@ a:focus-visible {
 .contact-brief h2 {
   min-height: 1em;
   margin: 25px 0 9px;
-  font: 800 clamp(28px, 3.3vw, 42px)/1 var(--font-display);
+  font: 700 clamp(28px, 3.3vw, 42px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
@@ -2070,7 +2070,7 @@ a:focus-visible {
 .contact-brief dd {
   margin: 0;
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .contact-mark-placeholder {
@@ -2134,5 +2134,106 @@ a:focus-visible {
 
   .contact-notice {
     gap: 8px;
+  }
+}
+
+/* Typography refinements */
+
+.workspace-heading h1,
+.evidence-heading h1 {
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.dossier-main h2 {
+  font-size: clamp(2.75rem, 5vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.case-nav a,
+.mobile-header a {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.archive-label,
+.sidebar-file span,
+.field-label,
+.eyebrow,
+.current-record,
+.document-label,
+.photo-caption,
+.identity-list dt,
+.evidence-profile > span,
+.evidence-counts dt,
+.evidence-card-meta > span,
+.timeline-record header,
+.archive-register-header,
+.archive-type,
+.contact-list dt,
+.contact-brief-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.64rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.field-value,
+.sidebar-file strong,
+.identity-list dd,
+.evidence-counts dd,
+.evidence-card-meta strong,
+.timeline-organization,
+.archive-row time,
+.contact-list dd span,
+.contact-brief dd {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.summary-grid p,
+.evidence-profile p,
+.evidence-heading p,
+.timeline-record p,
+.timeline-note-paper p,
+.archive-copy p,
+.archive-box p,
+.contact-intro,
+.contact-brief > p,
+.contact-notice p {
+  font-family: var(--font-document);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  .workspace-heading h1,
+  .evidence-heading h1 {
+    font-size: clamp(1.75rem, 8vw, 2.6rem);
+  }
+
+  .dossier-main h2 {
+    font-size: clamp(2.2rem, 11vw, 3.8rem);
+    overflow-wrap: anywhere;
+  }
+
+  .case-nav a,
+  .mobile-header a {
+    letter-spacing: 0.055em;
   }
 }
