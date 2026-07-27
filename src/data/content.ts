@@ -1,3 +1,6 @@
+import "../styles/performance.css";
+import "../scripts/performance";
+
 export interface Identity {
   name: string;
   username: string;

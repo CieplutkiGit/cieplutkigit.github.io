@@ -1,0 +1,5 @@
+@media (max-width: 760px), (pointer: coarse) {
+  .inner-page {
+    background-attachment: scroll;
+  }
+}
