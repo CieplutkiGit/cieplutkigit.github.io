@@ -1,6 +1,14 @@
 const optimizeImage = (image: HTMLImageElement) => {
-  image.loading = "lazy";
   image.decoding = "async";
+
+  const isBelowInitialViewport = image.getBoundingClientRect().top > window.innerHeight;
+  const isProjectMedia = image.matches(
+    ".evidence-card-image, .case-evidence-photo img, [data-case-screenshots] img"
+  );
+
+  if (isBelowInitialViewport || isProjectMedia) {
+    image.loading = "lazy";
+  }
 };
 
 document.querySelectorAll<HTMLImageElement>("img").forEach(optimizeImage);
