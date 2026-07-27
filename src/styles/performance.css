@@ -1,0 +1,7 @@
+/* Rendering optimizations that preserve the desktop presentation. */
+
+@media (max-width: 760px), (pointer: coarse) {
+  .inner-page {
+    background-attachment: scroll;
+  }
+}
