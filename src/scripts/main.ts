@@ -47,7 +47,84 @@ document.querySelectorAll<HTMLElement>("[data-skill-group]").forEach((group) => 
   );
 });
 
+let imageViewer: HTMLDialogElement | null = null;
+
+const openImageViewer = (image: HTMLImageElement) => {
+  if (!imageViewer) {
+    imageViewer = document.createElement("dialog");
+    imageViewer.className = "image-viewer";
+    imageViewer.innerHTML = `
+      <button type="button" data-image-viewer-close>CLOSE ×</button>
+      <img alt="" />
+    `;
+    document.body.append(imageViewer);
+
+    imageViewer.querySelector<HTMLButtonElement>("[data-image-viewer-close]")?.addEventListener("click", () => {
+      imageViewer?.close();
+    });
+
+    imageViewer.addEventListener("click", (event) => {
+      if (event.target === imageViewer) {
+        imageViewer?.close();
+      }
+    });
+  }
+
+  const fullImage = imageViewer.querySelector<HTMLImageElement>("img");
+  if (!fullImage) {
+    return;
+  }
+
+  fullImage.src = image.currentSrc || image.src;
+  fullImage.alt = image.alt;
+  imageViewer.showModal();
+};
+
+const enableImageViewer = (trigger: HTMLElement, image: HTMLImageElement) => {
+  trigger.classList.add("image-viewer-trigger");
+  trigger.tabIndex = 0;
+  trigger.setAttribute("role", "button");
+  trigger.setAttribute("aria-haspopup", "dialog");
+  trigger.setAttribute("aria-label", image.alt ? `Open ${image.alt}` : "Open full image");
+
+  const open = (event: Event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openImageViewer(image);
+  };
+
+  trigger.addEventListener("click", open);
+  trigger.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      open(event);
+    }
+  });
+};
+
+const mailtoForm = document.querySelector<HTMLFormElement>("[data-mailto-form]");
+
+if (mailtoForm) {
+  mailtoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(mailtoForm);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const subject = "Message from the case file portfolio";
+    const body = `From: ${name}\nReturn address: ${email}\n\n${message}`;
+
+    window.location.href = `mailto:lewandowskiarek3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
 const evidenceGrid = document.querySelector<HTMLElement>(".evidence-grid");
+const evidenceFileCount = document.querySelector<HTMLElement>("[data-evidence-file-count]");
+
+if (evidenceFileCount) {
+  const documentedCases = cases.filter((item) => item.status !== "TO BE DOCUMENTED");
+  evidenceFileCount.textContent = String(documentedCases.length);
+}
 
 if (evidenceGrid) {
   cases.forEach((item) => {
@@ -66,7 +143,7 @@ if (evidenceGrid) {
       ? item.tags.map((tag) => `<span>${tag}</span>`).join("")
       : "<span>[TAG HERE]</span>";
     const image = item.coverImage
-      ? `<img class="evidence-card-image" src="${item.coverImage}" alt="" />`
+      ? `<div class="evidence-card-image-frame"><img class="evidence-card-image is-${item.coverFit}" src="${item.coverImage}" alt="" /></div>`
       : '<div class="evidence-image-placeholder" role="img" aria-label="Project image placeholder">[IMAGE HERE]</div>';
 
     card.innerHTML = `
@@ -138,12 +215,32 @@ if (caseViewer) {
     renderList("keyFeatures", selectedCase.keyFeatures);
 
     const video = document.querySelector<HTMLVideoElement>("[data-case-video]");
+    const videoEmbed = document.querySelector<HTMLIFrameElement>("[data-case-video-embed]");
     const videoPlaceholder = document.querySelector<HTMLElement>("[data-case-video-placeholder]");
 
-    if (video && videoPlaceholder && selectedCase.videoUrl) {
-      video.src = selectedCase.videoUrl;
-      video.hidden = false;
+    if (videoPlaceholder && selectedCase.videoUrl) {
+      const usesEmbeddedPlayer =
+        selectedCase.videoUrl.includes("youtube") ||
+        selectedCase.videoUrl.includes("facebook.com/plugins/video.php");
+
+      if (videoEmbed && usesEmbeddedPlayer) {
+        videoEmbed.src = selectedCase.videoUrl;
+        videoEmbed.hidden = false;
+      } else if (video) {
+        video.src = selectedCase.videoUrl;
+        video.hidden = false;
+      }
       videoPlaceholder.hidden = true;
+    }
+
+    const supportingImage = document.querySelector<HTMLElement>("[data-case-supporting-image]");
+
+    if (supportingImage && selectedCase.supportingImage) {
+      const image = document.createElement("img");
+      image.src = selectedCase.supportingImage;
+      image.alt = `${selectedCase.name} development flow`;
+      supportingImage.append(image);
+      enableImageViewer(supportingImage, image);
     }
 
     const screenshots = document.querySelector<HTMLElement>("[data-case-screenshots]");
@@ -159,7 +256,12 @@ if (caseViewer) {
             const image = document.createElement("img");
             image.src = source;
             image.alt = `${selectedCase.name} screenshot ${index + 1}`;
-            frame.append(image);
+
+            const imageFrame = document.createElement("div");
+            imageFrame.className = "case-evidence-image";
+            imageFrame.append(image);
+            frame.append(imageFrame);
+            enableImageViewer(frame, image);
           } else {
             frame.textContent = "[IMAGE HERE]";
           }
@@ -171,7 +273,9 @@ if (caseViewer) {
 
     const links = {
       liveDemo: selectedCase.liveDemoUrl,
-      github: selectedCase.githubUrl
+      github: selectedCase.githubUrl,
+      googlePlay: selectedCase.googlePlayUrl,
+      appStore: selectedCase.appStoreUrl
     };
 
     document.querySelectorAll<HTMLAnchorElement>("[data-case-link]").forEach((link) => {

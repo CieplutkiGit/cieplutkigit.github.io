@@ -195,6 +195,13 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.archive-title img {
+  display: block;
+  width: min(100%, 720px);
+  height: auto;
+  margin: 0 auto;
+}
+
 .case-folder {
   position: relative;
   display: block;
@@ -534,19 +541,12 @@ a:focus-visible {
   transform: rotate(8deg);
 }
 
-.image-placeholder {
-  display: grid;
+.agent-portrait {
+  display: block;
+  width: 100%;
   aspect-ratio: 4 / 5;
-  place-items: center;
   border: 1px solid rgba(38, 37, 34, 0.65);
-  background:
-    linear-gradient(135deg, transparent 49.5%, rgba(255, 255, 255, 0.11) 50%, transparent 50.5%),
-    linear-gradient(45deg, transparent 49.5%, rgba(255, 255, 255, 0.11) 50%, transparent 50.5%),
-    #2d302f;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  filter: grayscale(1) sepia(0.15);
+  object-fit: cover;
 }
 
 .photo-caption {
@@ -966,14 +966,13 @@ a:focus-visible {
 }
 
 .evidence-profile-photo {
-  display: grid;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   min-height: 150px;
   margin: 12px 0;
-  place-items: center;
   border: 7px solid #e7d7b6;
-  background: #31322f;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 8px;
+  object-fit: cover;
   box-shadow: 0 7px 12px rgba(35, 29, 19, 0.3);
   transform: rotate(-1.5deg);
 }
@@ -995,7 +994,7 @@ a:focus-visible {
   font: 11px/1.45 var(--font-document);
 }
 
-.evidence-profile img {
+.evidence-profile-stamp {
   position: absolute;
   top: 150px;
   right: -10px;
@@ -1667,23 +1666,6 @@ a:focus-visible {
   text-align: right;
 }
 
-.timeline-photo-placeholder {
-  display: grid;
-  min-height: 210px;
-  place-items: center;
-  border: 8px solid #d6cebb;
-  outline: 1px solid rgba(255, 255, 255, 0.15);
-  background:
-    linear-gradient(135deg, transparent 49.5%, rgba(255, 255, 255, 0.1) 50%, transparent 50.5%),
-    linear-gradient(45deg, transparent 49.5%, rgba(255, 255, 255, 0.1) 50%, transparent 50.5%),
-    #303331;
-  color: rgba(255, 255, 255, 0.52);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.32);
-  transform: rotate(-0.7deg);
-}
-
 @media (max-width: 1080px) {
   .timeline-layout {
     grid-template-columns: 1fr;
@@ -1812,6 +1794,17 @@ a:focus-visible {
   transform: rotate(-2deg);
 }
 
+.archive-download {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.archive-download:hover,
+.archive-download:focus-visible {
+  background: rgba(132, 46, 37, 0.12);
+}
+
 .archive-link-placeholder {
   position: absolute;
   right: 22px;
@@ -1920,7 +1913,7 @@ a:focus-visible {
 }
 
 .contact-directory,
-.contact-brief {
+.contact-postcard {
   position: relative;
   color: var(--ink);
   background:
@@ -1980,14 +1973,20 @@ a:focus-visible {
 }
 
 .contact-list dd span,
+.contact-list dd a,
 .contact-list dd small {
   display: block;
 }
 
-.contact-list dd span {
+.contact-list dd span,
+.contact-list dd a {
   color: #5f211c;
   font-size: 11px;
   font-weight: 900;
+}
+
+.contact-list dd a {
+  overflow-wrap: anywhere;
 }
 
 .contact-list dd small {
@@ -2011,7 +2010,7 @@ a:focus-visible {
   color: #71644f;
 }
 
-.contact-brief {
+.contact-postcard {
   padding: clamp(30px, 4vw, 48px);
   border: 1px solid rgba(88, 67, 39, 0.58);
   transform: rotate(0.35deg);
@@ -2036,54 +2035,100 @@ a:focus-visible {
   letter-spacing: 0.1em;
 }
 
-.contact-brief h2 {
-  min-height: 1em;
-  margin: 25px 0 9px;
+.postcard-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.postcard-heading h2 {
+  margin: 12px 0 0;
   font: 700 clamp(28px, 3.3vw, 42px)/1 var(--font-display);
   text-transform: uppercase;
 }
 
-.contact-brief > p {
-  min-height: 82px;
-  margin: 0;
-  font: 14px/1.65 var(--font-document);
-}
-
-.contact-brief dl {
-  margin: 0;
-}
-
-.contact-brief dl div {
+.postcard-stamp {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  gap: 10px;
-  padding: 9px 0;
-  border-bottom: 1px dashed rgba(52, 42, 28, 0.24);
-}
-
-.contact-brief dt {
-  color: #71644f;
-  font-size: 8px;
-  letter-spacing: 0.08em;
-}
-
-.contact-brief dd {
-  margin: 0;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.contact-mark-placeholder {
-  display: grid;
-  width: 118px;
-  aspect-ratio: 1;
-  margin: 30px 0 0 auto;
+  width: 62px;
+  aspect-ratio: 0.88;
   place-items: center;
-  border: 1px dashed rgba(52, 42, 28, 0.4);
-  border-radius: 50%;
-  color: #746752;
-  font-size: 8px;
-  text-align: center;
+  border: 2px dashed var(--red);
+  color: var(--red);
+  font: 700 10px var(--font-typewriter);
+  letter-spacing: 0.1em;
+  opacity: 0.72;
+  transform: rotate(3deg);
+}
+
+.postcard-field {
+  display: block;
+  margin-top: 18px;
+}
+
+.postcard-field > span {
+  display: block;
+  margin-bottom: 6px;
+  color: #71644f;
+  font: 700 9px var(--font-typewriter);
+  letter-spacing: 0.1em;
+}
+
+.postcard-field input,
+.postcard-field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(52, 42, 28, 0.42);
+  border-radius: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font: 15px/1.45 var(--font-document);
+}
+
+.postcard-field input {
+  min-height: 34px;
+}
+
+.postcard-field textarea {
+  min-height: 132px;
+  padding: 8px 0;
+  resize: vertical;
+  background: repeating-linear-gradient(
+    transparent 0 27px,
+    rgba(52, 42, 28, 0.17) 27px 28px
+  );
+}
+
+.postcard-field input:focus,
+.postcard-field textarea:focus {
+  border-color: var(--red);
+}
+
+.postcard-send {
+  margin-top: 24px;
+  padding: 11px 16px 9px;
+  border: 2px solid var(--red);
+  color: var(--red);
+  background: transparent;
+  font: 700 11px var(--font-typewriter);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transform: rotate(-1deg);
+}
+
+.postcard-send:hover,
+.postcard-send:focus-visible {
+  color: #ead8b4;
+  background: var(--red);
+}
+
+.postcard-note {
+  display: block;
+  margin-top: 14px;
+  color: #71644f;
+  font: 11px/1.4 var(--font-document);
 }
 
 .contact-notice {
@@ -2115,7 +2160,7 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .contact-brief {
+  .contact-postcard {
     transform: none;
   }
 }
@@ -2196,6 +2241,7 @@ a:focus-visible {
 .timeline-organization,
 .archive-row time,
 .contact-list dd span,
+.contact-list dd a,
 .contact-brief dd {
   font-family: var(--font-typewriter);
   font-size: 0.78rem;
@@ -3052,12 +3098,15 @@ a:focus-visible {
 }
 
 .case-video-frame video,
+.case-video-frame iframe,
 .case-video-frame > div {
   width: 100%;
   height: 100%;
 }
 
-.case-video-frame video {
+.case-video-frame video,
+.case-video-frame iframe {
+  border: 0;
   object-fit: cover;
   background: #151819;
 }
@@ -3075,10 +3124,34 @@ a:focus-visible {
 
 .case-media-notes {
   min-height: 145px;
-  margin-top: auto;
+  margin-top: 24px;
+  margin-bottom: auto;
+  overflow: hidden;
   border: 1px solid rgba(70, 51, 29, 0.2);
   background: rgba(232, 215, 181, 0.24);
   box-shadow: inset 0 0 22px rgba(77, 51, 27, 0.04);
+}
+
+.case-media-notes:has(img) {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 3;
+  cursor: zoom-in;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.case-media-notes:has(img):hover {
+  z-index: 10;
+  box-shadow: 0 18px 34px rgba(42, 28, 14, 0.4);
+  transform: translateY(-5px) scale(1.06);
+}
+
+.case-media-notes img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 145px;
+  object-fit: contain;
 }
 
 .case-evidence-strip {
@@ -3119,11 +3192,23 @@ a:focus-visible {
   font: 0.55rem var(--font-typewriter);
   letter-spacing: 0.08em;
   box-shadow: 2px 4px 9px rgba(38, 27, 16, 0.24);
+  cursor: zoom-in;
   transform: rotate(-1deg);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .case-evidence-photo:nth-child(even) {
   transform: rotate(1.2deg);
+}
+
+.case-evidence-photo:has(img):hover {
+  z-index: 10;
+  box-shadow: 0 16px 28px rgba(38, 27, 16, 0.42);
+  transform: translateY(-5px) scale(1.12) rotate(-0.4deg);
+}
+
+.case-evidence-photo:nth-child(even):has(img):hover {
+  transform: translateY(-5px) scale(1.12) rotate(0.4deg);
 }
 
 .case-evidence-photo::before {
@@ -3147,12 +3232,17 @@ a:focus-visible {
   transform: rotate(2deg);
 }
 
-.case-evidence-photo img {
+.case-evidence-image {
   position: absolute;
   inset: 7px 7px 22px;
   z-index: 1;
-  width: calc(100% - 14px);
-  height: calc(100% - 29px);
+  overflow: hidden;
+}
+
+.case-evidence-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -3226,13 +3316,70 @@ a:focus-visible {
   cursor: pointer;
 }
 
+.evidence-card-image-frame {
+  aspect-ratio: 16 / 9;
+  margin: 12px 0 10px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 39, 31, 0.4);
+  background: #323432;
+}
+
 .evidence-card-image {
   display: block;
   width: 100%;
-  min-height: 92px;
-  margin: 12px 0 10px;
-  border: 1px solid rgba(45, 39, 31, 0.4);
+  height: 100%;
   object-fit: cover;
+}
+
+.evidence-card-image.is-contain {
+  object-fit: contain;
+}
+
+.image-viewer-trigger:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+
+.image-viewer {
+  width: fit-content;
+  max-width: 96vw;
+  max-height: 94vh;
+  padding: 38px 14px 14px;
+  overflow: visible;
+  border: 1px solid rgba(181, 150, 99, 0.75);
+  background: #171918;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+}
+
+.image-viewer::backdrop {
+  background: rgba(4, 6, 6, 0.88);
+  backdrop-filter: blur(3px);
+}
+
+.image-viewer img {
+  display: block;
+  max-width: calc(96vw - 28px);
+  max-height: calc(94vh - 52px);
+  object-fit: contain;
+}
+
+.image-viewer button {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  padding: 5px 8px 4px;
+  border: 1px solid rgba(181, 150, 99, 0.65);
+  color: #d8c49c;
+  background: transparent;
+  font: 700 9px var(--font-typewriter);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.image-viewer button:hover,
+.image-viewer button:focus-visible {
+  color: #171918;
+  background: #d8c49c;
 }
 
 @media (max-width: 860px) {

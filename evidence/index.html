@@ -16,7 +16,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="mobile-header">
-      <span>CASE FILE <span data-content="caseNumber">[TEXT HERE]</span></span>
+      <span>CASE FILE</span>
       <nav aria-label="Mobile navigation">
         <a href="../case/">Subject</a>
         <a href="./" aria-current="page">Evidence</a>
@@ -30,7 +30,6 @@
       <aside class="case-sidebar">
         <div class="sidebar-file">
           <span>CASE FILE</span>
-          <strong data-content="caseNumber">[TEXT HERE]</strong>
         </div>
 
         <nav class="case-nav" aria-label="Portfolio navigation">
@@ -49,15 +48,15 @@
           <div class="evidence-index-title">INDEX</div>
           <section class="evidence-profile">
             <span>SUBJECT</span>
-            <div class="evidence-profile-photo" role="img" aria-label="Profile image placeholder">[IMAGE HERE]</div>
-            <strong>[TEXT HERE]</strong>
-            <p>[TEXT HERE]</p>
-            <img src="../assets/stamp-verified.png" alt="Verified" />
+            <img class="evidence-profile-photo" src="../assets/agent-photo.png" alt="Arkadiusz Lewandowski" />
+            <strong>AGENT 404</strong>
+            <p>Arkadiusz Lewandowski<br />Unity Developer</p>
+            <img class="evidence-profile-stamp" src="../assets/stamp-verified.png" alt="Verified" />
           </section>
           <dl class="evidence-counts">
-            <div><dt>FILES</dt><dd>[TEXT HERE]</dd></div>
-            <div><dt>STATUS</dt><dd>[TEXT HERE]</dd></div>
-            <div><dt>UPDATED</dt><dd>[TEXT HERE]</dd></div>
+            <div><dt>FILES</dt><dd data-evidence-file-count>0</dd></div>
+            <div><dt>STATUS</dt><dd>AVAILABLE FOR WORK</dd></div>
+            <div><dt>UPDATED</dt><dd>01.08.2026</dd></div>
           </dl>
           <img class="evidence-fingerprint" src="../assets/fingerprint.png" alt="" />
         </aside>
@@ -67,7 +66,7 @@
             <div>
               <span class="eyebrow">02 / EVIDENCE</span>
               <h1>Evidence room</h1>
-              <p>[TEXT HERE]</p>
+              <p>Our agents recovered the following project files.</p>
             </div>
             <img src="../assets/stamp-featured.png" alt="Featured" />
           </header>
@@ -78,7 +77,7 @@
                 <button type="button" data-evidence-category="all" aria-pressed="true">ALL</button>
                 <button type="button" data-evidence-category="pc" aria-pressed="false">PC</button>
                 <button type="button" data-evidence-category="mobile" aria-pressed="false">MOBILE</button>
-                <button type="button" data-evidence-category="placeholder" aria-pressed="false">[CATEGORY HERE]</button>
+                <button type="button" data-evidence-category="vr-ar" aria-pressed="false">VR/AR</button>
               </div>
               <label class="evidence-search">
                 <span class="visually-hidden">Search evidence files</span>
@@ -96,9 +95,10 @@
             </div>
             <div class="evidence-tags" role="group" aria-label="Project tags">
               <button type="button" data-evidence-tag="all" aria-pressed="true">ALL TAGS</button>
-              <button type="button" data-evidence-tag="tag-01" aria-pressed="false">[TAG HERE 01]</button>
-              <button type="button" data-evidence-tag="tag-02" aria-pressed="false">[TAG HERE 02]</button>
-              <button type="button" data-evidence-tag="tag-03" aria-pressed="false">[TAG HERE 03]</button>
+              <button type="button" data-evidence-tag="game" aria-pressed="false">GAME</button>
+              <button type="button" data-evidence-tag="application" aria-pressed="false">APPLICATION</button>
+              <button type="button" data-evidence-tag="tool" aria-pressed="false">TOOL</button>
+              <button type="button" data-evidence-tag="shader-vfx" aria-pressed="false">SHADER/VFX</button>
             </div>
           </div>
 
