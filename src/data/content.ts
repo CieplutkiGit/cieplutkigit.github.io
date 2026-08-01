@@ -70,7 +70,7 @@ export interface SiteContent {
 const placeholder = "[TEXT HERE]";
 
 export const content: SiteContent = {
-  caseNumber: placeholder,
+  caseNumber: "001",
   identity: {
     name: placeholder,
     username: placeholder,
