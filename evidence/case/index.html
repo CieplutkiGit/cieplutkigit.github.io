@@ -80,7 +80,7 @@
 
             <div class="case-viewer-actions">
               <a data-case-link="liveDemo" href="#" hidden>LIVE DEMO</a>
-              <a data-case-link="github" href="#" hidden>GITHUB</a>
+              <a data-case-link="github" href="#" hidden>SEE CODE</a>
               <a data-case-link="googlePlay" href="#" hidden>GOOGLE PLAY</a>
               <a data-case-link="appStore" href="#" hidden>APP STORE</a>
               <a href="../">BACK TO FILES</a>
@@ -89,12 +89,16 @@
 
           <section class="case-media-sheet">
             <header>
-              <span>VIDEO EVIDENCE</span>
+              <span data-case-media-label>VIDEO EVIDENCE</span>
               <strong>CASE <span data-case-field="caseNumber">[TEXT HERE]</span></strong>
             </header>
             <div class="case-video-frame">
               <video data-case-video controls hidden></video>
               <iframe data-case-video-embed title="Project video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+              <div class="case-page-panel" data-case-page-panel hidden>
+                <img data-case-page-image src="" alt="" />
+                <a data-case-page href="#">SEE PAGE</a>
+              </div>
               <div data-case-video-placeholder>[VIDEO HERE]</div>
             </div>
             <div class="case-media-notes" data-case-supporting-image aria-label="Supporting evidence"></div>

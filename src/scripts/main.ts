@@ -217,6 +217,10 @@ if (caseViewer) {
     const video = document.querySelector<HTMLVideoElement>("[data-case-video]");
     const videoEmbed = document.querySelector<HTMLIFrameElement>("[data-case-video-embed]");
     const videoPlaceholder = document.querySelector<HTMLElement>("[data-case-video-placeholder]");
+    const pagePanel = document.querySelector<HTMLElement>("[data-case-page-panel]");
+    const pageLink = document.querySelector<HTMLAnchorElement>("[data-case-page]");
+    const pageImage = document.querySelector<HTMLImageElement>("[data-case-page-image]");
+    const mediaLabel = document.querySelector<HTMLElement>("[data-case-media-label]");
 
     if (videoPlaceholder && selectedCase.videoUrl) {
       const usesEmbeddedPlayer =
@@ -231,6 +235,20 @@ if (caseViewer) {
         video.hidden = false;
       }
       videoPlaceholder.hidden = true;
+    } else if (videoPlaceholder && pagePanel && pageLink && selectedCase.pageUrl) {
+      pageLink.href = selectedCase.pageUrl;
+      pageLink.target = "_blank";
+      pageLink.rel = "noreferrer";
+      if (pageImage && selectedCase.pageImage) {
+        pageImage.src = selectedCase.pageImage;
+        pageImage.alt = `${selectedCase.name} page preview`;
+      }
+      pagePanel.hidden = false;
+      pagePanel.parentElement?.classList.add("has-page-preview");
+      videoPlaceholder.hidden = true;
+      if (mediaLabel) {
+        mediaLabel.textContent = "PROJECT PAGE";
+      }
     }
 
     const supportingImage = document.querySelector<HTMLElement>("[data-case-supporting-image]");

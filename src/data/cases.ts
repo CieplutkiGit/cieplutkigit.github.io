@@ -7,6 +7,8 @@ export interface PortfolioCase {
   techStack: string[];
   keyFeatures: string[];
   videoUrl: string;
+  pageUrl?: string;
+  pageImage?: string;
   supportingImage: string;
   screenshots: string[];
   liveDemoUrl: string;
@@ -79,6 +81,24 @@ const firstProjectCover = new URL(
 ).href;
 const firstProjectBoard = new URL(
   "../../assets/first-project-board.png",
+  import.meta.url
+).href;
+const yeelightControlPanelCover = new URL(
+  "../../assets/yeelight-control-panel-cover.png",
+  import.meta.url
+).href;
+const yeelightControlPanelScreenshots = [
+  new URL("../../assets/yeelight-control-panel-01.png", import.meta.url).href,
+  new URL("../../assets/yeelight-control-panel-02.png", import.meta.url).href,
+  new URL("../../assets/yeelight-control-panel-03.png", import.meta.url).href,
+  new URL("../../assets/yeelight-control-panel-04.png", import.meta.url).href
+];
+const yeelightControlPanelPage = new URL(
+  "../../assets/yeelight-control-panel-page.png",
+  import.meta.url
+).href;
+const yeelightControlPanelBoard = new URL(
+  "../../assets/yeelight-control-panel-board.png",
   import.meta.url
 ).href;
 
@@ -199,6 +219,36 @@ export const cases: PortfolioCase[] = [
     coverImage: pandaGameCover,
     coverFit: "cover",
     order: 10
+  },
+  {
+    id: "yeelight-control-panel",
+    caseNumber: "005",
+    name: "Yeelight Control Panel",
+    brief: "Yeelight LAN is a local-first desktop app for compatible Yeelight devices. No cloud, no account, no telemetry. Just fast, private control that stays in your home.",
+    role: "Built the entire desktop application in C++ and Qt Creator, including integration with the Yeelight LAN API.",
+    techStack: ["C++", "Qt", "Qt Creator", "Yeelight LAN API"],
+    keyFeatures: [
+      "Local-first device control",
+      "No cloud or account",
+      "No telemetry",
+      "Compatible Yeelight device control"
+    ],
+    videoUrl: "",
+    pageUrl: "https://cieplutkigit.github.io/Yeelight-Control-Panel",
+    pageImage: yeelightControlPanelPage,
+    supportingImage: yeelightControlPanelBoard,
+    screenshots: yeelightControlPanelScreenshots,
+    liveDemoUrl: "",
+    githubUrl: "https://github.com/CieplutkiGit/Yeelight-Control-Panel",
+    googlePlayUrl: "",
+    appStoreUrl: "",
+    status: "TO BE DOCUMENTED",
+    category: "APPLICATION",
+    categoryKey: "application",
+    tags: ["application"],
+    coverImage: yeelightControlPanelCover,
+    coverFit: "cover",
+    order: 60
   }
 ];
 
