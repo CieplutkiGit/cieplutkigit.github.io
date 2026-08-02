@@ -242,7 +242,7 @@ export const cases: PortfolioCase[] = [
     githubUrl: "https://github.com/CieplutkiGit/Yeelight-Control-Panel",
     googlePlayUrl: "",
     appStoreUrl: "",
-    status: "TO BE DOCUMENTED",
+    status: "CLOSED",
     category: "APPLICATION",
     categoryKey: "application",
     tags: ["application"],
