@@ -351,7 +351,8 @@ if (
     const matchingCards = evidenceCards.filter((card) => {
       const tags = card.dataset.tags?.split(" ") ?? [];
       const matchesCategory =
-        selectedCategory === "all" || card.dataset.category === selectedCategory;
+        selectedCategory === "all" ||
+        (card.dataset.category || "").split(" ").includes(selectedCategory);
       const matchesTag = selectedTag === "all" || tags.includes(selectedTag);
       const matchesSearch = !searchTerm || card.textContent?.toLowerCase().includes(searchTerm);
       return Boolean(matchesCategory && matchesTag && matchesSearch);

@@ -101,6 +101,20 @@ const yeelightControlPanelBoard = new URL(
   "../../assets/yeelight-control-panel-board.png",
   import.meta.url
 ).href;
+const match3AnimalsCover = new URL(
+  "../../assets/match3-animals-cover.png",
+  import.meta.url
+).href;
+const match3AnimalsScreenshots = [
+  new URL("../../assets/match3-animals-01.png", import.meta.url).href,
+  new URL("../../assets/match3-animals-02.png", import.meta.url).href,
+  new URL("../../assets/match3-animals-03.png", import.meta.url).href,
+  new URL("../../assets/match3-animals-04.png", import.meta.url).href
+];
+const match3AnimalsBoard = new URL(
+  "../../assets/match3-animals-board.png",
+  import.meta.url
+).href;
 
 export const cases: PortfolioCase[] = [
   {
@@ -249,6 +263,38 @@ export const cases: PortfolioCase[] = [
     coverImage: yeelightControlPanelCover,
     coverFit: "cover",
     order: 60
+  },
+  {
+    id: "match3-animals",
+    caseNumber: "006",
+    name: "Match3 Animals",
+    brief: "A small Unity match-3 prototype with swapping, matching, gravity, refills, cascades, score, a move limit, and special pieces.",
+    role: "Solo Developer responsible for building the entire prototype.",
+    techStack: ["Unity", "C#", "DOTween", "Unity Input System"],
+    keyFeatures: [
+      "Match-3 board gameplay",
+      "Score and move limit",
+      "Cascades and chain reactions",
+      "Horizontal and vertical line clears",
+      "Bomb clears",
+      "Mouse and drag input",
+      "Config-driven visuals and gameplay settings",
+      "Particles and sound"
+    ],
+    videoUrl: "https://www.youtube-nocookie.com/embed/H-cM0psyxqI?rel=0",
+    supportingImage: match3AnimalsBoard,
+    screenshots: match3AnimalsScreenshots,
+    liveDemoUrl: "",
+    githubUrl: "https://github.com/CieplutkiGit/Match3",
+    googlePlayUrl: "",
+    appStoreUrl: "",
+    status: "CLOSED",
+    category: "PC / MOBILE",
+    categoryKey: "pc mobile",
+    tags: ["game"],
+    coverImage: match3AnimalsCover,
+    coverFit: "cover",
+    order: 70
   }
 ];
 
