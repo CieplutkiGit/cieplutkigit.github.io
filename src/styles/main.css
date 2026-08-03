@@ -2551,6 +2551,12 @@ a:focus-visible {
   letter-spacing: 0.1em;
 }
 
+.current-case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .current-case-visual > span {
   position: absolute;
   bottom: -5px;
